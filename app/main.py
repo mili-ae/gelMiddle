@@ -19,7 +19,7 @@ app_ = Flask(__name__)
 api = Api(app_)
 
 
-@app.errorhandler(401)
+@app_.errorhandler(401)
 def custom_401(e):
     return "Access denied", 401
 
@@ -69,7 +69,7 @@ class Painters(Resource):
             
             return response
         
-@app.route("/image/<path:path>")
+@app_.route("/image/<path:path>")
 def return_image(path):
     return send_file(f"images/{path}", mimetype="image/gif")
 
