@@ -121,6 +121,7 @@ def draw_profile(uid: int, name:str, lvl: int, current_exp: int, next_lvl_exp: i
     infotab_text_draw.text((375, 150), text=f"{next_lvl_exp - current_exp}", fill=standard_text_color, font=font_info, anchor="rs")
     infotab_text_draw.text((12, 173), text="About me", fill=standard_text_color, font=font_abtme_title)
     # TODO: Make new limit of 255 characters
+    description = "Beep Boop, description!" if description == None else description
     textwraped = wrap(description, width=54)
     infotab_text_draw.text((193, 213), text="\n".join(textwraped), fill=standard_text_color, font=font_abtme_text, anchor="ms")
     background.paste(infotab_text, (185, 268), mask=infotab_text)
