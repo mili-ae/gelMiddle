@@ -15,8 +15,8 @@ akey = os.environ.get("API_KEY")
 MONGODB_URI = os.environ.get("MONGODB_URI")
 client = pymongo.MongoClient(MONGODB_URI)
 db = client["Mint"]
-app = Flask(__name__)
-api = Api(app)
+app_ = Flask(__name__)
+api = Api(app_)
 
 
 @app.errorhandler(401)
