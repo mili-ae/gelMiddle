@@ -1,4 +1,4 @@
-from app.main import app_
+from app.main import app
 import os
 
 if __name__ == "__main__":
@@ -9,4 +9,4 @@ if __name__ == "__main__":
     if not os.path.isdir("app/images/profiles"):
         os.mkdir("app/images/profiles")
     
-    app_.run()
+    app.run()
