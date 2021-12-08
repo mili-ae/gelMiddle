@@ -40,7 +40,7 @@ class Painters(Resource):
         if not key or key != akey:
             abort(401)
             
-        utils.image_check(pfp)
+        app.utils.image_check(pfp)
         guild_db = db[f"{gid}"]
         global_db = db["global"]
         user_guild = guild_db.find_one({"_id": uid})
@@ -56,7 +56,7 @@ class Painters(Resource):
             return response
         elif img_type == "profile":
             name = request.args.get("name")
-            place = utils.calculate_place(db, uid, gid)
+            place = app.utils.calculate_place(db, uid, gid)
             curr_exp = user_guild["exp"]
             next_lvl_exp = user_guild["nextLevelExp"]
             reps = user_global["rep"]
