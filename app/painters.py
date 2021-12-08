@@ -7,14 +7,14 @@ BASE_COLOR = (255, 255, 255, 255)
 def draw_lvlup(uid: int, level: int):
     w, h = 130, 140
     # Fonts
-    font_xp = ImageFont.truetype("gelMiddle/app/fonts/Comfortaa-Light.ttf", 22)
-    font_name = ImageFont.truetype("gelMiddle/app/fonts/Roboto-Bold.ttf", 25)
+    font_xp = ImageFont.truetype("fonts/Comfortaa-Light.ttf", 22)
+    font_name = ImageFont.truetype("fonts/Roboto-Bold.ttf", 25)
     # ---------------------------
     # User avatar
-    pfp_img = Image.open(f"gelMiddle/app/images/avatars/{uid}.png").resize((w//2, h//2))
+    pfp_img = Image.open(f"images/avatars/{uid}.png").resize((w//2, h//2))
     # ---------------------------
     # Background and lvlup element images
-    bg_img = Image.open("gelMiddle/app/images/backgrounds/lvlup/default_lvlup.png").convert("RGBA")
+    bg_img = Image.open("images/backgrounds/lvlup/default_lvlup.png").convert("RGBA")
     # ---------------------------
 
     background = Image.new("RGBA", (w, h))
@@ -47,27 +47,27 @@ def draw_lvlup(uid: int, level: int):
     lvl_text_draw.text((0, 0), f"LVL {level}", fill="black", font=font_name)
     background.paste(lvl_text, (x, y), lvl_text)
 
-    background.save(f"gelMiddle/app/images/lvlups/{uid}.png")
+    background.save(f"images/lvlups/{uid}.png")
     
     
 def draw_profile(uid: int, name:str, lvl: int, current_exp: int, next_lvl_exp: int, place: int, reps: int, description: str):
     W, H = 580, 580
     standard_text_color = (80,80,80)
     # Fonts
-    font_xp = ImageFont.truetype("gelMiddle/app/fonts/Roboto-Regular.ttf", 16)
-    font_name = ImageFont.truetype("gelMiddle/app/fonts/Roboto-Bold.ttf", 50)
-    font_rep = ImageFont.truetype("gelMiddle/app/fonts/Roboto-Regular.ttf", 38)
-    font_levelt = ImageFont.truetype("gelMiddle/app/fonts/Roboto-Regular.ttf", 30)
-    font_level = ImageFont.truetype("gelMiddle/app/fonts/Roboto-Bold.ttf", 60)
-    font_info = ImageFont.truetype("gelMiddle/app/fonts/Roboto-Regular.ttf", 22)
-    font_abtme_title = ImageFont.truetype("gelMiddle/app/fonts/Roboto-Bold.ttf", 22)
-    font_abtme_text = ImageFont.truetype("gelMiddle/app/fonts/Roboto-Regular.ttf", 16)
+    font_xp = ImageFont.truetype("fonts/Roboto-Regular.ttf", 16)
+    font_name = ImageFont.truetype("fonts/Roboto-Bold.ttf", 50)
+    font_rep = ImageFont.truetype("fonts/Roboto-Regular.ttf", 38)
+    font_levelt = ImageFont.truetype("fonts/Roboto-Regular.ttf", 30)
+    font_level = ImageFont.truetype("fonts/Roboto-Bold.ttf", 60)
+    font_info = ImageFont.truetype("fonts/Roboto-Regular.ttf", 22)
+    font_abtme_title = ImageFont.truetype("fonts/Roboto-Bold.ttf", 22)
+    font_abtme_text = ImageFont.truetype("fonts/Roboto-Regular.ttf", 16)
     # ---------------------------
     # User avatar
-    pfp_img = Image.open(f"gelMiddle/app/images/avatars/{uid}.png").resize((148, 148))
+    pfp_img = Image.open(f"images/avatars/{uid}.png").resize((148, 148))
     # ---------------------------
     # Background and lvlup element images
-    bg_img = Image.open("gelMiddle/app/images/backgrounds/profile/default_profile.png").convert("RGBA")
+    bg_img = Image.open("images/backgrounds/profile/default_profile.png").convert("RGBA")
     # ---------------------------
     
     background = Image.new("RGBA", (W, H))
@@ -125,4 +125,4 @@ def draw_profile(uid: int, name:str, lvl: int, current_exp: int, next_lvl_exp: i
     infotab_text_draw.text((193, 213), text="\n".join(textwraped), fill=standard_text_color, font=font_abtme_text, anchor="ms")
     background.paste(infotab_text, (185, 268), mask=infotab_text)
     
-    background.save(f"gelMiddle/app/images/profiles/{uid}.png")
+    background.save(f"images/profiles/{uid}.png")
