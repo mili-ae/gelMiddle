@@ -1,0 +1,5 @@
+app/.env
+app/images/avatars
+app/images/lvlups
+app/images/profiles
+app/__pycache__
