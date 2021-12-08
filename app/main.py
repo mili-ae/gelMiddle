@@ -7,8 +7,8 @@ from flask import Flask, jsonify, request, send_file
 from flask.helpers import url_for
 from flask_restful import Api, Resource, abort
 
-import utils
-from painters import draw_lvlup, draw_profile
+import app.utils
+from app.painters import draw_lvlup, draw_profile
 
 load_dotenv()
 akey = os.environ.get("API_KEY")
