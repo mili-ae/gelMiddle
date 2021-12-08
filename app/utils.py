@@ -11,7 +11,7 @@ def image_check(url):
     resp = requests.get(url)
     img = Image.open(BytesIO(resp.content)).convert("RGB")
     file_name = file_name_for_regular_data + ".png"
-    img.save(f"gelMiddle/app/images/avatars/{file_name}", "png")
+    img.save(f"images/avatars/{file_name}", "png")
     
 def calculate_place(db, user_id, guild_id):
         guild_db = db[str(guild_id)]
