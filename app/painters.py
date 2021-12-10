@@ -4,7 +4,7 @@ from textwrap import wrap
 
 BASE_COLOR = (255, 255, 255, 255)
 
-def draw_lvlup(uid: int, level: int):
+def draw_lvlup(uid: int, level: int, filename: str):
     w, h = 130, 140
     # Fonts
     font_xp = ImageFont.truetype("app/fonts/Comfortaa-Light.ttf", 22)
@@ -47,10 +47,10 @@ def draw_lvlup(uid: int, level: int):
     lvl_text_draw.text((0, 0), f"LVL {level}", fill="black", font=font_name)
     background.paste(lvl_text, (x, y), lvl_text)
 
-    background.save(f"app/images/lvlups/{uid}.png")
+    background.save(f"app/images/lvlups/{filename}.png")
     
     
-def draw_profile(uid: int, name:str, lvl: int, current_exp: int, next_lvl_exp: int, place: int, reps: int, description: str):
+def draw_profile(uid: int, name:str, lvl: int, current_exp: int, next_lvl_exp: int, place: int, reps: int, description: str, filename: str):
     W, H = 580, 580
     standard_text_color = (80,80,80)
     # Fonts
@@ -126,4 +126,4 @@ def draw_profile(uid: int, name:str, lvl: int, current_exp: int, next_lvl_exp: i
     infotab_text_draw.text((193, 213), text="\n".join(textwraped), fill=standard_text_color, font=font_abtme_text, anchor="ms")
     background.paste(infotab_text, (185, 268), mask=infotab_text)
     
-    background.save(f"app/images/profiles/{uid}.png")
+    background.save(f"app/images/profiles/{filename}.png")

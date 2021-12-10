@@ -1,3 +1,4 @@
+import datetime
 import os
 
 import pymongo
@@ -7,8 +8,8 @@ from flask import Flask, jsonify, request, send_file
 from flask.helpers import url_for
 from flask_restful import Api, Resource, abort
 
-import app.utils as utils
 import app.painters as painters
+import app.utils as utils
 
 load_dotenv()
 akey = os.environ.get("API_KEY")
@@ -46,11 +47,12 @@ class Painters(Resource):
         user_guild = guild_db.find_one({"_id": uid})
         user_global = global_db.find_one({"_id": uid})
         lvl = user_guild["level"]
+        dt = int(datetime.datetime.now().timestamp())
         
         if img_type == "level":
-            painters.draw_lvlup(uid, lvl)
+            painters.draw_lvlup(uid, lvl, dt)
             response = jsonify({
-                "image": request.host_url + url_for("return_image", path=f"lvlups/{uid}.png")
+                "image": request.host_url + url_for("return_image", path=f"lvlups/{dt}.png")
             })
             
             return response
@@ -62,9 +64,9 @@ class Painters(Resource):
             reps = user_global["rep"]
             desc = user_global["desc"]
             
-            painters.draw_profile(uid, name, lvl, curr_exp, next_lvl_exp, place, reps, desc)
+            painters.draw_profile(uid, name, lvl, curr_exp, next_lvl_exp, place, reps, desc, dt)
             response = jsonify({
-                "image": request.host_url + url_for("return_image", path=f"profiles/{uid}.png")
+                "image": request.host_url + url_for("return_image", path=f"profiles/{dt}.png")
             })
             
             return response
